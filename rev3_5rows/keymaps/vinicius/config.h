@@ -1,0 +1,13 @@
+#pragma once
+
+#define FLOW_TAP_TERM 130
+#define CHORDAL_HOLD
+#undef TAPPING_TERM
+#define TAPPING_TERM 250
+
+#define PERMISSIVE_HOLD
+
+#define COMBO_COUNT 3
+#define TAPPING_TERM_PER_KEY
+
+#define USB_SUSPEND_WAKEUP_DELAY 0
