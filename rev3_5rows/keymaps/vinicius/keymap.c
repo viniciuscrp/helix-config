@@ -71,11 +71,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_LALT,        KC_SPACE,       KC_M,                           KC_BSPC,        KC_ENTER,       KC_F5,          KC_F4,          KC_F3,          KC_F2,          KC_F1
   ),
   [_FN] = LAYOUT(
-    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,              KC_NO,                                      KC_NO,          KC_NO,          KC_NO,          KC_NO,                   KC_NO,                 KC_NO,
-    KC_NO,          KC_NO,          KC_F7,          KC_F8,          DUAL_FUNC_0,        DUAL_FUNC_1,                                KC_NO,          KC_7,           KC_8,           KC_9,                    US_PLUS,               KC_NO,
-    KC_NO,          KC_NO,          KC_F4,          TD(DANCE_0),    MT(MOD_LSFT, KC_F6),DUAL_FUNC_2,                                LSFT(KC_8),     MT(MOD_LSFT, KC_4),MT(MOD_LCTL, KC_5),MT(MOD_LALT, KC_6),MT(MOD_LGUI, KC_MINUS),KC_NO,
-    KC_NO,          KC_NO,          KC_F1,          KC_F2,          KC_F3,              DUAL_FUNC_3,    KC_NO,                      KC_NO,          KC_NO,          KC_1,           KC_2,                    KC_3,                  KC_SLASH,       KC_NO,
-    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,              KC_NO,          KC_SPACE,                   KC_BSPC,        KC_DOT,         KC_COMMA,       KC_0,                    KC_NO,                 KC_NO,          KC_NO
+    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,              KC_NO,                                      KC_NO,          KC_NO,             KC_NO,             KC_NO,             KC_NO,                 KC_NO,
+    KC_NO,          KC_NO,          KC_F7,          KC_F8,          DUAL_FUNC_0,        DUAL_FUNC_1,                                KC_NO,          KC_7,              KC_8,              KC_9,              US_PLUS,               KC_NO,
+    KC_NO,          KC_NO,          KC_F4,          TD(DANCE_0),    KC_F6,              DUAL_FUNC_2,                                LSFT(KC_8),     MT(MOD_LSFT, KC_4),MT(MOD_LCTL, KC_5),MT(MOD_LALT, KC_6),MT(MOD_LGUI, KC_MINUS),KC_NO,
+    KC_NO,          KC_NO,          KC_F1,          KC_F2,          KC_F3,              DUAL_FUNC_3,    KC_NO,                      KC_NO,          KC_NO,             KC_1,              KC_2,              KC_3,                  KC_SLASH,       KC_NO,
+    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,              KC_NO,          KC_SPACE,                   KC_BSPC,        KC_0,              KC_DOT,            KC_COMMA,          KC_NO,                 KC_NO,          KC_NO
   ),
   [_MOUSE] = LAYOUT(
     KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,           KC_NO,                                         KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
