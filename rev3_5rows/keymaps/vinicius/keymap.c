@@ -234,9 +234,7 @@ bool oled_task_user(void) {
 
   oled_set_cursor(0, 3);
   oled_write_P(PSTR("Jiggler: "), false);
-  if (ms_jiggler_enabled) {
-    oled_write_char(0x10, false); // right-pointing triangle, used as a pointer icon
-  }
+  oled_write_P(ms_jiggler_enabled ? PSTR("ON") : PSTR("off"), false);
 
   return false;
 }
