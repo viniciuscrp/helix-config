@@ -202,6 +202,8 @@ void matrix_scan_user(void) {
 
 #ifdef OLED_ENABLE
 bool oled_task_user(void) {
+  if (!is_oled_on()) return false;
+
   if (!is_keyboard_master()) {
     // Let the board default (Helix logo) render on the non-master half;
     // layer/lock/jiggler state is only meaningful on the master side.
