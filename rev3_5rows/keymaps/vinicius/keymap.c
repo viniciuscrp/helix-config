@@ -201,6 +201,10 @@ void matrix_scan_user(void) {
 }
 
 #ifdef OLED_ENABLE
+oled_rotation_t oled_init_user(oled_rotation_t rotation) {
+  return OLED_ROTATION_270;
+}
+
 bool oled_task_user(void) {
   if (last_input_activity_elapsed() > 300000) {
     oled_off();
@@ -208,38 +212,41 @@ bool oled_task_user(void) {
   }
 
   if (!is_keyboard_master()) {
-    // Let the board default (Helix logo) render on the non-master half;
-    // layer/lock/jiggler state is only meaningful on the master side.
     return true;
   }
 
   oled_clear();
 
+  // 270deg portrait: ~10 chars wide x 16 rows
   oled_set_cursor(0, 0);
-  oled_write_P(PSTR("Layer: "), false);
+  oled_write_P(PSTR("Layer:"), false);
+  oled_set_cursor(0, 1);
   switch (get_highest_layer(layer_state)) {
-    case _BASE:   oled_write_P(PSTR("Base"), false);   break;
-    case _ALT:    oled_write_P(PSTR("Alt"), false);    break;
-    case _NAV:    oled_write_P(PSTR("Nav"), false);     break;
-    case _SYM:    oled_write_P(PSTR("Sym"), false);     break;
-    case _ADJUST: oled_write_P(PSTR("Adjust"), false);  break;
-    case _GAME:   oled_write_P(PSTR("Game"), false);    break;
-    case _FN:     oled_write_P(PSTR("Fn"), false);      break;
-    case _MOUSE:  oled_write_P(PSTR("Mouse"), false);   break;
-    default:      oled_write_P(PSTR("?"), false);       break;
+    case _BASE:   oled_write_P(PSTR("  Base"),   false); break;
+    case _ALT:    oled_write_P(PSTR("  Alt"),    false); break;
+    case _NAV:    oled_write_P(PSTR("  Nav"),    false); break;
+    case _SYM:    oled_write_P(PSTR("  Sym"),    false); break;
+    case _ADJUST: oled_write_P(PSTR("  Adjust"), false); break;
+    case _GAME:   oled_write_P(PSTR("  Game"),   false); break;
+    case _FN:     oled_write_P(PSTR("  Fn"),     false); break;
+    case _MOUSE:  oled_write_P(PSTR("  Mouse"),  false); break;
+    default:      oled_write_P(PSTR("  ?"),      false); break;
   }
 
-  oled_set_cursor(0, 1);
-  oled_write_P(PSTR("Caps Lock: "), false);
-  oled_write_P(host_keyboard_led_state().caps_lock ? PSTR("ON") : PSTR("off"), false);
-
-  oled_set_cursor(0, 2);
-  oled_write_P(PSTR("Caps Word: "), false);
-  oled_write_P(is_caps_word_on() ? PSTR("ON") : PSTR("off"), false);
-
   oled_set_cursor(0, 3);
-  oled_write_P(PSTR("Jiggler: "), false);
-  oled_write_P(ms_jiggler_enabled ? PSTR("ON") : PSTR("off"), false);
+  oled_write_P(PSTR("Caps Lock"), false);
+  oled_set_cursor(0, 4);
+  oled_write_P(host_keyboard_led_state().caps_lock ? PSTR("  [ON] ") : PSTR("  [--] "), false);
+
+  oled_set_cursor(0, 6);
+  oled_write_P(PSTR("Caps Word"), false);
+  oled_set_cursor(0, 7);
+  oled_write_P(is_caps_word_on() ? PSTR("  [ON] ") : PSTR("  [--] "), false);
+
+  oled_set_cursor(0, 9);
+  oled_write_P(PSTR("Jiggler"), false);
+  oled_set_cursor(0, 10);
+  oled_write_P(ms_jiggler_enabled ? PSTR("  [ON] ") : PSTR("  [--] "), false);
 
   return false;
 }
