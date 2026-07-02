@@ -215,12 +215,14 @@ bool oled_task_user(void) {
     return true;
   }
 
-  oled_clear();
+  //oled_clear();
 
   // 270deg portrait: ~10 chars wide x 16 rows
   oled_set_cursor(0, 0);
-  oled_write_P(PSTR("Layer:"), false);
+  oled_write_P(PSTR("Layer"), false);
   oled_set_cursor(0, 1);
+  oled_write_P(PSTR("-----"), false);
+  oled_set_cursor(0, 2);
   switch (get_highest_layer(layer_state)) {
     case _BASE:   oled_write_P(PSTR("1-BAS"),  false); break;
     case _ALT:    oled_write_P(PSTR("2-ALT"),  false); break;
@@ -232,20 +234,17 @@ bool oled_task_user(void) {
     default:      oled_write_P(PSTR("?"),    false); break;
   }
 
-  oled_set_cursor(0, 3);
-  oled_write_P(PSTR("  CL"), false);
-  oled_set_cursor(0, 4);
-  oled_write_P(host_keyboard_led_state().caps_lock ? PSTR(" [ ON ] ") : PSTR(" [ -- ] "), false);
+  oled_set_cursor(0,3);
+  oled_write_P(PSTR("-----"), false);
 
-  oled_set_cursor(0, 6);
-  oled_write_P(PSTR("  CW"), false);
+  oled_set_cursor(0, 5);
+  oled_write_P(host_keyboard_led_state().caps_lock ? PSTR(">CPL<") : PSTR(" cpl "), false);
+
   oled_set_cursor(0, 7);
-  oled_write_P(is_caps_word_on() ? PSTR(" [ ON ] ") : PSTR(" [ -- ] "), false);
+  oled_write_P(is_caps_word_on() ? PSTR(">CPW<") : PSTR(" cpw "), false);
 
   oled_set_cursor(0, 9);
-  oled_write_P(PSTR("  MO"), false);
-  oled_set_cursor(0, 10);
-  oled_write_P(ms_jiggler_enabled ? PSTR(" [ ON ] ") : PSTR(" [ -- ] "), false);
+  oled_write_P(ms_jiggler_enabled ? PSTR(">MSJ<") : PSTR(" msj "), false);
 
   return false;
 }
