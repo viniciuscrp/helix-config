@@ -222,14 +222,13 @@ bool oled_task_user(void) {
   oled_write_P(PSTR("Layer:"), false);
   oled_set_cursor(0, 1);
   switch (get_highest_layer(layer_state)) {
-    case _BASE:   oled_write_P(PSTR("Bas"),  false); break;
-    case _ALT:    oled_write_P(PSTR("Alt"),  false); break;
-    case _NAV:    oled_write_P(PSTR("Nav"),  false); break;
-    case _SYM:    oled_write_P(PSTR("Sym"),  false); break;
-    case _ADJUST: oled_write_P(PSTR("Adj"),  false); break;
-    case _GAME:   oled_write_P(PSTR("Game"), false); break;
-    case _FN:     oled_write_P(PSTR("Fn"),   false); break;
-    case _MOUSE:  oled_write_P(PSTR("Mou"),  false); break;
+    case _BASE:   oled_write_P(PSTR("1-BAS"),  false); break;
+    case _ALT:    oled_write_P(PSTR("2-ALT"),  false); break;
+    case _NAV:    oled_write_P(PSTR("3-NAV"),  false); break;
+    case _SYM:    oled_write_P(PSTR("4-SYM"),  false); break;
+    case _ADJUST: oled_write_P(PSTR("5-ADJ"),  false); break;
+    case _GAME:   oled_write_P(PSTR("6-GAM"), false); break;
+    case _FN:     oled_write_P(PSTR("7-FUN"),   false); break;
     default:      oled_write_P(PSTR("?"),    false); break;
   }
 
