@@ -367,9 +367,10 @@ bool oled_task_user(void) {
     case _NAV:    oled_write_P(PSTR("3-NAV"),  false); break;
     case _SYM:    oled_write_P(PSTR("4-SYM"),  false); break;
     case _ADJUST: oled_write_P(PSTR("5-ADJ"),  false); break;
-    case _GAME:   oled_write_P(PSTR("6-GAM"), false); break;
-    case _FN:     oled_write_P(PSTR("7-FUN"),   false); break;
-    default:      oled_write_P(PSTR("?"),    false); break;
+    case _GAME:   oled_write_P(PSTR("6-GAM"),  false); break;
+    case _FN:     oled_write_P(PSTR("7-FUN"),  false); break;
+    case _MOUSE:  oled_write_P(PSTR("8-MOU"),  false); break;
+    default:      oled_write_P(PSTR("?"),      false); break;
   }
 
   oled_set_cursor(0,3);
