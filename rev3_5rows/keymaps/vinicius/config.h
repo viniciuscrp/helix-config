@@ -15,4 +15,3 @@
 #define BOOTMAGIC_ROW 4
 #define BOOTMAGIC_COLUMN 0
 
-#define TAPPING_TOGGLE 1
