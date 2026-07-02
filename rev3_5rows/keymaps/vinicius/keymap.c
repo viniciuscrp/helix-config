@@ -16,6 +16,7 @@ enum custom_keycodes {
   ST_MACRO_0 = SAFE_RANGE,
   ST_MACRO_1,
   MS_JIGGLER,
+  MS_SNIPE,
 };
 
 enum tap_dance_codes {
@@ -79,7 +80,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [_MOUSE] = LAYOUT(
     KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,           KC_NO,                                         KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
-    KC_NO,          KC_NO,          LCTL(KC_W),     KC_NO,          LCTL(LSFT(KC_T)),LCTL(KC_T),                                    KC_NO,          LALT(KC_LEFT),  KC_MS_UP,       LALT(KC_RIGHT), KC_NO,          KC_NO,
+    KC_NO,          KC_NO,          LCTL(KC_W),     MS_SNIPE,       LCTL(LSFT(KC_T)),LCTL(KC_T),                                    KC_NO,          LALT(KC_LEFT),  KC_MS_UP,       LALT(KC_RIGHT), KC_NO,          KC_NO,
     KC_ESC,         KC_MS_WH_LEFT,  KC_MS_BTN2,     KC_MS_BTN3,     KC_MS_BTN1,      KC_MS_WH_RIGHT,                                KC_NO,          KC_MS_LEFT,     KC_MS_DOWN,     KC_MS_RIGHT,    KC_NO,          KC_TRANSPARENT,
     KC_NO,          KC_HOME,        KC_MS_WH_UP,    KC_NO,          KC_MS_WH_DOWN,   KC_END,         KC_NO,                         KC_NO,          KC_NO,          ST_MACRO_0,     KC_NO,          ST_MACRO_1,     KC_NO,          KC_NO,
     KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,           KC_NO,          KC_RIGHT_CTRL,                 KC_NO,          TT(_MOUSE),     KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRANSPARENT
@@ -184,6 +185,7 @@ tap_dance_action_t tap_dance_actions[] = {
 };
 
 static bool ms_jiggler_enabled = false;
+static bool ms_snipe_enabled   = false;
 static uint16_t ms_jiggler_timer = 0;
 static int8_t ms_jiggler_direction = 1;
 
@@ -385,6 +387,9 @@ bool oled_task_user(void) {
   oled_set_cursor(0, 9);
   oled_write_P(ms_jiggler_enabled ? PSTR(">MSJ<") : PSTR(" msj "), false);
 
+  oled_set_cursor(0, 11);
+  oled_write_P(ms_snipe_enabled ? PSTR(">SNP<") : PSTR(" snp "), false);
+
   render_luna(0, 13);
 
   return false;
@@ -480,6 +485,19 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }
       }
       return false;
+    case MS_SNIPE:
+        if (record->event.pressed) {
+            ms_snipe_enabled = true;
+            isSneaking       = true;
+            mk_max_speed     = 1;
+            mk_interval      = 48;
+        } else {
+            ms_snipe_enabled = false;
+            isSneaking       = false;
+            mk_max_speed     = MOUSEKEY_MAX_SPEED;
+            mk_interval      = MOUSEKEY_INTERVAL;
+        }
+        return false;
     case MS_JIGGLER:
         if (record->event.pressed) {
             ms_jiggler_enabled = !ms_jiggler_enabled;
