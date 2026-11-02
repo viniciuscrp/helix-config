@@ -1,0 +1,6 @@
+{
+    "keyboard": "helix/rev3",
+    "keymap": "vinicius",
+    "processor": "RP2040",
+    "bootloader": "rp2040"
+}
