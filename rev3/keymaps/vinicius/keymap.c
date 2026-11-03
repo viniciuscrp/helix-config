@@ -30,60 +30,60 @@ enum tap_dance_codes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT(
-    MO(_ADJUST),    KC_1,           KC_2,           KC_3,              KC_4,              KC_5,                                               KC_6,               KC_7,              KC_8,              KC_9,           KC_0,             KC_BSPC,
-    KC_GRAVE,       KC_Q,           KC_W,           KC_E,              KC_R,              KC_T,                                               KC_Y,               KC_U,              KC_I,              KC_O,           KC_P,             KC_DEL,
-    KC_ESC,         LT(_SYM, KC_A), KC_S,           MT(MOD_LCTL, KC_D),MT(MOD_LSFT, KC_F),KC_G,                                               KC_H,               MT(MOD_LSFT, KC_J),MT(MOD_LCTL, KC_K),KC_L,           LT(_SYM, BR_SCLN),KC_ENTER,
-    BR_BSLS,        KC_Z,           KC_X,           KC_C,              KC_V,              KC_B,           KC_MEH,                   KC_MEH,             KC_N,              KC_M,              KC_COMMA,       KC_DOT,           BR_SLSH,        KC_TRANSPARENT,
-    KC_CAPS,        KC_TRANSPARENT, KC_NO,          KC_NO,             CW_TOGG,           KC_LEFT_GUI,    LT(_FN, KC_SPACE),        LT(_NAV, KC_BSPC),  MO(_MOUSE),        KC_LEFT_ALT,       KC_TRANSPARENT, KC_TRANSPARENT,   KC_TRANSPARENT, KC_TRANSPARENT
+    MO(_ADJUST),    KC_1,           KC_2,           KC_3,              KC_4,              KC_5,                                                         KC_6,       KC_7,                KC_8,                KC_9,   KC_0,              KC_DEL,
+    KC_GRAVE,       KC_Q,           KC_W,           KC_E,              KC_R,              KC_T,                                                         KC_Y,       KC_U,                KC_I,                KC_O,   KC_P,              KC_DEL,
+    KC_ESC,         LT(_SYM, KC_A), KC_S,           MT(MOD_LCTL, KC_D),MT(MOD_LSFT, KC_F),KC_G,                                                         KC_H,       MT(MOD_LSFT, KC_J),  MT(MOD_LCTL, KC_K),  KC_L,   LT(_SYM, BR_SCLN), KC_ENTER,
+    KC_CAPS,        KC_Z,           KC_X,           KC_C,              KC_V,              KC_B,           KC_MEH,                   KC_MEH,             KC_N,       KC_M,                KC_COMMA,            KC_DOT, BR_SLSH,           CW_TOGG,
+    KC_NO,          KC_NO,          KC_NO,          KC_NO,             KC_NO,             KC_LEFT_GUI,    LT(_FN, KC_SPACE),        LT(_NAV, KC_BSPC),  MO(_MOUSE), KC_LEFT_ALT,         KC_NO,               KC_NO,  KC_NO,             KC_NO
   ),
   [_ALT] = LAYOUT(
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,    KC_TRANSPARENT,    KC_TRANSPARENT,                                     KC_TRANSPARENT,     KC_TRANSPARENT,    KC_TRANSPARENT,    KC_TRANSPARENT, KC_TRANSPARENT,   KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_W,           KC_F,              KC_P,              KC_G,                                               KC_J,               KC_L,              KC_U,              KC_Y,           KC_SCLN,          KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_R,           MT(MOD_LCTL, KC_S),MT(MOD_LSFT, KC_T),KC_D,                                               KC_TRANSPARENT,     MT(MOD_LSFT, KC_N),MT(MOD_LCTL, KC_E),KC_I,           LT(_SYM, KC_O),   KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,    KC_TRANSPARENT,    KC_TRANSPARENT, KC_TRANSPARENT,           KC_TRANSPARENT,     KC_K,              KC_TRANSPARENT,    KC_TRANSPARENT, KC_TRANSPARENT,   KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,    KC_TRANSPARENT,    KC_TRANSPARENT, KC_TRANSPARENT,           KC_TRANSPARENT,     KC_TRANSPARENT,    KC_TRANSPARENT,    KC_TRANSPARENT, KC_TRANSPARENT,   KC_TRANSPARENT, KC_TRANSPARENT
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,    KC_TRANSPARENT,    KC_TRANSPARENT,                                           KC_TRANSPARENT, KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_W,           KC_F,              KC_P,              KC_G,                                                     KC_J,           KC_L,               KC_U,               KC_Y,           KC_SCLN,        KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_R,           MT(MOD_LCTL, KC_S),MT(MOD_LSFT, KC_T),KC_D,                                                     KC_TRANSPARENT, MT(MOD_LSFT, KC_N), MT(MOD_LCTL, KC_E), KC_I,           LT(_SYM, KC_O), KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,    KC_TRANSPARENT,    KC_TRANSPARENT, KC_TRANSPARENT,           KC_TRANSPARENT, KC_K,           KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,    KC_TRANSPARENT,    KC_TRANSPARENT, KC_TRANSPARENT,           KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
   [_NAV] = LAYOUT(
-    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                                    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
-    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                                    KC_PAGE_UP,     LCTL(KC_LEFT),  KC_UP,          LCTL(KC_RIGHT), KC_NO,          KC_TRANSPARENT,
-    KC_NO,          KC_LEFT_GUI,    KC_LEFT_ALT,    KC_LEFT_CTRL,   KC_LEFT_SHIFT,  KC_NO,                                                    KC_PGDN,        KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_NO,          KC_TRANSPARENT,
-    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          RALT(LSFT(RCTL(KC_B))),KC_NO,                   KC_NO,          KC_NO,          KC_HOME,        KC_NO,          KC_END,         KC_NO,          KC_NO,
-    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                 KC_SPACE,                KC_BSPC,        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO
+    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                                    KC_NO,      KC_NO,          KC_NO,    KC_NO,          KC_NO,  KC_NO,
+    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                                    KC_PAGE_UP, LCTL(KC_LEFT),  KC_UP,    LCTL(KC_RIGHT), KC_NO,  KC_TRANSPARENT,
+    KC_NO,          KC_LEFT_GUI,    KC_LEFT_ALT,    KC_LEFT_CTRL,   KC_LEFT_SHIFT,  KC_NO,                                                    KC_PGDN,    KC_LEFT,        KC_DOWN,  KC_RIGHT,       KC_NO,  KC_TRANSPARENT,
+    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          RALT(LSFT(RCTL(KC_B))),KC_NO,                   KC_NO,    KC_NO,      KC_HOME,        KC_NO,    KC_END,         KC_NO,  KC_NO,
+    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                 KC_SPACE,                KC_BSPC,  KC_NO,      KC_NO,          KC_NO,    KC_NO,          KC_NO,  KC_NO
   ),
   [_SYM] = LAYOUT(
-    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                                    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
-    KC_NO,          KC_EXLM,        KC_AT,          KC_HASH,        KC_DLR,         KC_PERC,                                                  BR_QUES,        KC_EQUAL,       BR_QUOT,        BR_DQT,         US_PLUS,        KC_NO,
-    KC_NO,          BR_ACUT,        BR_GRAV,        BR_BSLS,        BR_PIPE,        BR_CIRC,                                                  KC_ASTR,        KC_LPRN,        BR_LCBR,        BR_LBRC,        KC_MINUS,       KC_NO,
-    KC_NO,          KC_NO,          KC_NO,          BR_CCDL,        BR_COLN,        KC_AMPR,        KC_NO,                          KC_NO,          BR_TILD,        KC_RPRN,        BR_RCBR,        BR_RBRC,        KC_UNDS,        KC_NO,
-    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_SPACE,                       KC_BSPC,        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO
+    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                                    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
+    KC_NO,          KC_EXLM,        KC_AT,          KC_HASH,        KC_DLR,         KC_PERC,                                                  BR_QUES,  KC_EQUAL, BR_QUOT,  BR_DQT,   US_PLUS,  KC_NO,
+    KC_NO,          BR_ACUT,        BR_GRAV,        BR_BSLS,        BR_PIPE,        BR_CIRC,                                                  KC_ASTR,  KC_LPRN,  BR_LCBR,  BR_LBRC,  KC_MINUS, KC_NO,
+    KC_NO,          KC_NO,          KC_NO,          BR_CCDL,        BR_COLN,        KC_AMPR,        KC_NO,                          KC_NO,    BR_TILD,  KC_RPRN,  BR_RCBR,  BR_RBRC,  KC_UNDS,  KC_NO,
+    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_SPACE,                       KC_BSPC,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO
   ),
   [_ADJUST] = LAYOUT(
-    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                                    KC_NO,          KC_NO,              KC_NO,            KC_NO,              KC_NO,    QK_BOOT,
-    KC_NO,          TO(_BASE),      KC_NO,          KC_NO,          KC_NO,          KC_NO,                                                    KC_NO,          KC_BRIGHTNESS_DOWN, KC_AUDIO_VOL_UP,  KC_BRIGHTNESS_UP,   KC_PSCR,  KC_NO,
-    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          TO(_GAME),                                                KC_NO,          KC_MEDIA_PREV_TRACK,KC_AUDIO_VOL_DOWN,KC_MEDIA_NEXT_TRACK,KC_NO,    KC_NO,
-    KC_NO,          KC_NO,          KC_NO,          TO(_ALT),       KC_NO,          KC_NO,          KC_NO,                          KC_NO,          KC_MEDIA_PLAY_PAUSE,KC_AUDIO_MUTE,    KC_NO,              KC_NO,    KC_NO,          KC_NO,
-    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          MS_JIGGLER,                     KC_NO,          KC_NO,              KC_NO,            KC_NO,              KC_NO,    KC_NO,          KC_NO
+    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                                  KC_NO,                KC_NO,                KC_NO,              KC_NO,               KC_NO,   QK_BOOT,
+    KC_NO,          TO(_BASE),      KC_NO,          KC_NO,          KC_NO,          KC_NO,                                                  KC_NO,                KC_BRIGHTNESS_DOWN,   KC_AUDIO_VOL_UP,    KC_BRIGHTNESS_UP,    KC_PSCR, KC_NO,
+    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          TO(_GAME),                                              KC_NO,                KC_MEDIA_PREV_TRACK,  KC_AUDIO_VOL_DOWN,  KC_MEDIA_NEXT_TRACK, KC_NO,   KC_NO,
+    KC_NO,          KC_NO,          KC_NO,          TO(_ALT),       KC_NO,          KC_NO,          KC_NO,                          KC_NO,  KC_MEDIA_PLAY_PAUSE,  KC_AUDIO_MUTE,        KC_NO,              KC_NO,               KC_NO,   KC_NO,
+    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          MS_JIGGLER,                     KC_NO,  KC_NO,                KC_NO,                KC_NO,              KC_NO,               KC_NO,   KC_NO
   ),
   [_GAME] = LAYOUT(
     KC_ESC,         KC_1,           KC_2,           KC_3,           KC_4,           KC_5,                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, TO(_BASE),
     KC_TAB,         KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_NO,
     KC_LSFT,        KC_A,           KC_S,           KC_D,           KC_F,           KC_G,                                                     KC_TRANSPARENT, KC_J,           KC_K,           KC_TRANSPARENT, BR_SCLN,        KC_ENTER,
-    KC_LCTL,        KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,           KC_NO,                          KC_NO,          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_NO,
-    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_LALT,        KC_SPACE,       KC_M,                           KC_BSPC,        KC_ENTER,       KC_F5,          KC_F4,          KC_F3,          KC_F2,          KC_F1
+    KC_LCTL,        KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,           KC_NO,                          KC_NO,    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_NO,
+    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_LALT,        KC_SPACE,       KC_M,                           KC_BSPC,  KC_ENTER,       KC_F5,          KC_F4,          KC_F3,          KC_F2,          KC_F1
   ),
   [_FN] = LAYOUT(
-    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                                    KC_NO,          KC_NO,             KC_NO,             KC_NO,             KC_NO,                 KC_NO,
-    KC_NO,          KC_NO,          KC_F7,          KC_F8,          DUAL_FUNC_0,    DUAL_FUNC_1,                                              KC_NO,          KC_7,              KC_8,              KC_9,              US_PLUS,               KC_NO,
-    KC_NO,          KC_NO,          KC_F4,          TD(DANCE_0),    KC_F6,          DUAL_FUNC_2,                                              LSFT(KC_8),     MT(MOD_LSFT, KC_4),MT(MOD_LCTL, KC_5),MT(MOD_LALT, KC_6),MT(MOD_LGUI, KC_MINUS),KC_NO,
-    KC_NO,          KC_NO,          KC_F1,          KC_F2,          KC_F3,          DUAL_FUNC_3,    KC_NO,                          KC_NO,          KC_NO,             KC_1,              KC_2,              KC_3,                  KC_SLASH,       KC_NO,
-    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_SPACE,                       KC_BSPC,        KC_0,              KC_DOT,            KC_COMMA,          KC_NO,                 KC_NO,          KC_NO
+    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                                    KC_NO,      KC_NO,              KC_NO,              KC_NO,              KC_NO,                  KC_NO,
+    KC_NO,          KC_NO,          KC_F7,          KC_F8,          DUAL_FUNC_0,    DUAL_FUNC_1,                                              KC_NO,      KC_7,               KC_8,               KC_9,               US_PLUS,                KC_NO,
+    KC_NO,          KC_NO,          KC_F4,          TD(DANCE_0),    KC_F6,          DUAL_FUNC_2,                                              LSFT(KC_8), MT(MOD_LSFT, KC_4), MT(MOD_LCTL, KC_5), MT(MOD_LALT, KC_6), MT(MOD_LGUI, KC_MINUS), KC_NO,
+    KC_NO,          KC_NO,          KC_F1,          KC_F2,          KC_F3,          DUAL_FUNC_3,    KC_NO,                          KC_NO,    KC_NO,      KC_1,               KC_2,               KC_3,               KC_SLASH,               KC_NO,
+    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_SPACE,                       KC_BSPC,  KC_0,       KC_DOT,             KC_COMMA,           KC_NO,              KC_NO,                  KC_NO
   ),
   [_MOUSE] = LAYOUT(
-    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                                    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
-    KC_NO,          KC_NO,          LCTL(KC_W),     MS_SNIPE,       LCTL(LSFT(KC_T)),LCTL(KC_T),                                              KC_NO,          LALT(KC_LEFT),  MS_UP,          LALT(KC_RIGHT), KC_NO,          KC_NO,
-    KC_ESC,         MS_WHLL,        MS_BTN2,        MS_BTN3,        MS_BTN1,        MS_WHLR,                                                  KC_NO,          MS_LEFT,        MS_DOWN,        MS_RGHT,        KC_NO,          KC_TRANSPARENT,
-    KC_NO,          KC_HOME,        MS_WHLU,        KC_NO,          MS_WHLD,        KC_END,         KC_NO,                          KC_NO,          KC_NO,          ST_MACRO_0,     KC_NO,          ST_MACRO_1,     KC_NO,          KC_NO,
-    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_RIGHT_CTRL,                  KC_NO,          TT(_MOUSE),     KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRANSPARENT
+    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                                  KC_NO,      KC_NO,          KC_NO,    KC_NO,          KC_NO,  KC_NO,
+    KC_NO,          KC_NO,          LCTL(KC_W),     MS_SNIPE,       LCTL(LSFT(KC_T)),LCTL(KC_T),                                            KC_NO,      LALT(KC_LEFT),  MS_UP,    LALT(KC_RIGHT), KC_NO,  KC_NO,
+    KC_ESC,         MS_WHLL,        MS_BTN2,        MS_BTN3,        MS_BTN1,        MS_WHLR,                                                KC_NO,      MS_LEFT,        MS_DOWN,  MS_RGHT,        KC_NO,  KC_TRANSPARENT,
+    KC_NO,          KC_HOME,        MS_WHLU,        KC_NO,          MS_WHLD,        KC_END,         KC_NO,                          KC_NO,  KC_NO,      ST_MACRO_0,     KC_NO,    ST_MACRO_1,     KC_NO,  KC_NO,
+    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_RIGHT_CTRL,                  KC_NO,  TT(_MOUSE), KC_NO,          KC_NO,    KC_NO,          KC_NO,  KC_TRANSPARENT
   ),
 };
 
