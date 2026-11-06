@@ -27,14 +27,16 @@ enum tap_dance_codes {
 #define DUAL_FUNC_1 LT(6, KC_H)
 #define DUAL_FUNC_2 LT(7, KC_9)
 #define DUAL_FUNC_3 LT(13, KC_S)
+#define MEH_Z MT(MOD_LCTL | MOD_LSFT | MOD_LALT, KC_Z)
+#define MEH_SLSH MT(MOD_LCTL | MOD_LSFT | MOD_LALT, BR_SLSH)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT(
-    MO(_ADJUST),    KC_1,           KC_2,           KC_3,              KC_4,              KC_5,                                                         KC_6,       KC_7,                KC_8,                KC_9,   KC_0,              KC_DEL,
-    KC_GRAVE,       KC_Q,           KC_W,           KC_E,              KC_R,              KC_T,                                                         KC_Y,       KC_U,                KC_I,                KC_O,   KC_P,              KC_DEL,
-    KC_ESC,         LT(_SYM, KC_A), KC_S,           MT(MOD_LCTL, KC_D),MT(MOD_LSFT, KC_F),KC_G,                                                         KC_H,       MT(MOD_LSFT, KC_J),  MT(MOD_LCTL, KC_K),  KC_L,   LT(_SYM, BR_SCLN), KC_ENTER,
-    KC_CAPS,        KC_Z,           KC_X,           KC_C,              KC_V,              KC_B,           KC_MEH,                   KC_MEH,             KC_N,       KC_M,                KC_COMMA,            KC_DOT, BR_SLSH,           CW_TOGG,
-    KC_NO,          KC_NO,          KC_NO,          KC_NO,             KC_NO,             KC_LEFT_GUI,    LT(_FN, KC_SPACE),        LT(_NAV, KC_BSPC),  MO(_MOUSE), KC_LEFT_ALT,         KC_NO,               KC_NO,  KC_NO,             KC_NO
+    MO(_ADJUST),    KC_1,           KC_2,           KC_3,              KC_4,              KC_5,                                                         KC_6,       KC_7,                       KC_8,                KC_9,   KC_0,              KC_DEL,
+    KC_GRAVE,       KC_Q,           KC_W,           KC_E,              KC_R,              KC_T,                                                         KC_Y,       KC_U,                       KC_I,                KC_O,   KC_P,              KC_DEL,
+    KC_ESC,         LT(_SYM, KC_A), KC_S,           MT(MOD_LCTL, KC_D),MT(MOD_LSFT, KC_F),KC_G,                                                         KC_H,       MT(MOD_LSFT, KC_J),         MT(MOD_LCTL, KC_K),  KC_L,   LT(_SYM, BR_SCLN), KC_ENTER,
+    KC_NO,          MEH_Z,          KC_X,           KC_C,              KC_V,              KC_B,              KC_CAPS,               CW_TOGG,            KC_N,       KC_M,                       KC_COMMA,            KC_DOT, MEH_SLSH,         KC_NO,
+    KC_NO,          KC_NO,          KC_NO,          KC_NO,             KC_NO,             KC_LEFT_GUI,       LT(_FN, KC_SPACE),     LT(_NAV, KC_BSPC),  MO(_MOUSE), KC_LEFT_ALT,         KC_NO,               KC_NO,  KC_NO,             KC_NO
   ),
   [_ALT] = LAYOUT(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,    KC_TRANSPARENT,    KC_TRANSPARENT,                                           KC_TRANSPARENT, KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
